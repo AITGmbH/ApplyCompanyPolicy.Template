@@ -27,5 +27,11 @@ The default AIT ACP package containing the recommended settings (AIT Company Pol
 To install AIT Company Policy, run the following command in the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
     PM> Install-Package AIT.CompanyPolicy
+	
+##Known Issues##
+
+- There is a known bug concerning the update functionality of NuGet packages. This bug can appear when updating a single package under source control in Microsoft TFS using local Workspaces. For further information visit the discussion at [NuGet](https://github.com/NuGet/Home/issues/491) and the issue at [Microsoft](https://connect.microsoft.com/VisualStudio/feedback/details/1344773/tfs-local-workspace-marks-files-as-deleted). 
+> To prevent this bug from appearing, do not use the NuGet update-package functionality when there is only one NuGet package installed. Rather uninstall and install the package manually.
+
 
 This software is provided by [AIT GmbH & Co. KG](http://www.aitgmbh.de/en/).
