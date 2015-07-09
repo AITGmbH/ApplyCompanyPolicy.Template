@@ -49,7 +49,7 @@
     <Content Include="CompanyPolicy\Resharper\AIT.DotSettings">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="CompanyPolicy\Signing\AIT_TemporaryKey.snk">
+    <Content Include="CompanyPolicy\Signing\Dummy.snk">
       <SubType>Content</SubType>
     </Content>
     <Content Include="CompanyPolicy\StaticCodeAnalysis\AIT.ruleset">
