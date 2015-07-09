@@ -33,13 +33,8 @@
 			# checks whether file exists in package
 			if(Test-Path $oldpath) 
 			{
-				# check whether file exists in solution dir
-				if(!(Test-Path $newPath))
-				{
-					#if not, copy it
-					Copy-Item $oldpath $newPath
-				}
-
+				Copy-Item $oldpath $newPath
+				
 				# look up for solution folder
 				$settingsFolder = $solution.Projects | Where-Object {$_.Name.Equals($settingsFolderName, [StringComparison]::OrdinalIgnoreCase)} | Select-Object -First 1
 
