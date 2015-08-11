@@ -62,7 +62,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\ApplyCompanyPolicy\CompanyPolicy\CodeAnalysisDictionary\AIT.CodeAnalysisDictionary.xml">
+    <Content Include="..\AIT.CodeAnalysisDictionary.xml">
       <Link>Properties\AIT.CodeAnalysisDictionary.xml</Link>
     </Content>
   </ItemGroup>
@@ -73,7 +73,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\StyleCop\v4.7\StyleCop.targets" Condition="Exists('$(MSBuildExtensionsPath)\StyleCop\v4.7\StyleCop.targets')" />
-  
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
