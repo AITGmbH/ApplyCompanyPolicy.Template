@@ -8,6 +8,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyExampleUsage", "PolicyExampleUsage\PolicyExampleUsage.csproj", "{DBACB0F7-9895-401F-A4EA-7719216A4115}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Settings", ".Settings", "{A8C4AA33-43DE-4A05-A512-09EAC774D196}"
+	ProjectSection(SolutionItems) = preProject
+		AIT.CodeAnalysisDictionary.xml = AIT.CodeAnalysisDictionary.xml
+		AIT.ruleset = AIT.ruleset
+		ApplyCompanyPolicy.sln.DotSettings = ApplyCompanyPolicy.sln.DotSettings
+		Dummy.snk = Dummy.snk
+		Settings.StyleCop = Settings.StyleCop
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

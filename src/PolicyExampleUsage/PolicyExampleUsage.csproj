@@ -22,7 +22,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\PolicyExampleUsage.XML</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\ApplyCompanyPolicy\CompanyPolicy\StaticCodeAnalysis\AIT.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\AIT.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,7 +36,7 @@
     <CodeAnalysisRuleSet>..\AIT.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Dummy.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\Dummy.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -56,11 +56,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Dummy.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\ApplyCompanyPolicy\CompanyPolicy\CodeAnalysisDictionary\AIT.CodeAnalysisDictionary.xml">
       <Link>Properties\AIT.CodeAnalysisDictionary.xml</Link>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="..\AIT.CodeAnalysisDictionary.xml">
+      <Link>Properties\AIT.CodeAnalysisDictionary.xml</Link>
+    </CodeAnalysisDictionary>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\StyleCop\v4.7\StyleCop.targets" Condition="Exists('$(MSBuildExtensionsPath)\StyleCop\v4.7\StyleCop.targets')" />
