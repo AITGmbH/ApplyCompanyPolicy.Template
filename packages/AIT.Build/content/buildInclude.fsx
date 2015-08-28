@@ -375,7 +375,7 @@ Target "CheckWindows" (fun _ ->
 )
 
 MyTarget "VersionBump" (fun _ ->
-    let doBranchUpdates = not isLocalBuild && (getBuildParamOrDefault "yaaf_merge_master" "false") = "true"
+    let doBranchUpdates = not isLocalBuild && (getBuildParamOrDefault "ait_build_merge_master" "false") = "true"
     if doBranchUpdates then
       // Make sure we are on develop (commit will fail otherwise)
       Stash.push "" ""
