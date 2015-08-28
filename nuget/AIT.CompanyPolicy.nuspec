@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>@project@</id>
+    <title>@project@</title>
+    <version>@build.number@</version>
+    <authors>@authors@</authors>
+    <owners>@authors@</owners>
+    <licenseUrl>https://github.com/AITGmbH/AIT-Apply-Company-Policy-SDK/blob/develop/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/AITGmbH/AIT-Apply-Company-Policy-SDK</projectUrl>
+    <!--<iconUrl></iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>@summary@</summary>
+    <description>@description@</description>
+    <releaseNotes>@releaseNotes@</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>@tags@</tags>
+    @dependencies@
+  </metadata>
+  <files>
+    <!-- Add the install scripts to the package -->
+    <file src="src\ApplyCompanyPolicy\tools\**.ps1" target="tools"/>
+
+    <!-- Add all build files with all specified versions -->
+    <file src="src\ApplyCompanyPolicy\build\**" target="build"/>
+
+    <!-- Add the config files for the extensions to the package -->
+    <file src="src\ApplyCompanyPolicy\CompanyPolicy\CompanyPolicy.config" target="CompanyPolicy"/>
+    <file src="src\AIT.ruleset" target="CompanyPolicy\StaticCodeAnalysis\AIT.ruleset"/>
+    <file src="src\Dummy.snk" target="CompanyPolicy\Signing\Dummy.snk"/>
+    <file src="src\AIT.CodeAnalysisDictionary.xml" target="CompanyPolicy\CodeAnalysisDictionary"/>
+    <file src="src\Settings.StyleCop" target="CompanyPolicy\StyleCop\Settings.StyleCop"/>
+    <file src="src\ApplyCompanyPolicy.sln.DotSettings" target="CompanyPolicy\Resharper\AIT.DotSettings"/>
+  </files>
+</package>
