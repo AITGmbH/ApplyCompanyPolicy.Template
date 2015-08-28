@@ -1,8 +1,17 @@
-before_build:
-  - nuget restore
-  
+init:
+  - git config --global core.autocrlf input
+version: 0.{build}
+branches:
+  except:
+  - gh-pages
+build_script:
+  - cmd: build.cmd
+test: off
 artifacts:
-  - path: '**\*.log'
-    name: logfiles
-  - path: '**\*.svclog'
-    name: svclogs
+- path: '**\*.svclog'
+  name: logs
+- path: '**\*.log'
+  name: logs
+- path: '**\test\*\logs'
+  name: logs
+deploy: off
