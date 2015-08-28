@@ -2,8 +2,8 @@
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 // ----------------------------------------------------------------------------
-#I @"../../FAKE/tools/"
-#r @"FakeLib.dll"
+//#I @"../../FAKE/tools/"
+#r @"../../FAKE/tools/FakeLib.dll"
 // NOTE: We cannot add those here because FSharp.Formatting requires Razor2
 //#I @"../../FSharp.Compiler.Service/lib/net40/"
 //#I @"../../Yaaf.FSharp.Scripting/lib/net40/"
