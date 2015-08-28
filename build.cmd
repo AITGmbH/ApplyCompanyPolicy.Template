@@ -1,6 +1,4 @@
 @echo off
-rem Printf environment info
-set
 
 if exist bootstrap.cmd (
   call bootstrap.cmd
