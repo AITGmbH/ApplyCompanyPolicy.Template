@@ -26,10 +26,10 @@
 
     <!-- Add the config files for the extensions to the package -->
     <file src="src\ApplyCompanyPolicy\CompanyPolicy\CompanyPolicy.config" target="CompanyPolicy"/>
-    <file src="src\ApplyCompanyPolicy\CompanyPolicy\StaticCodeAnalysis\*.ruleset" target="CompanyPolicy\StaticCodeAnalysis"/>
-    <file src="src\ApplyCompanyPolicy\CompanyPolicy\Signing\*.snk" target="CompanyPolicy\Signing"/>
-    <file src="src\ApplyCompanyPolicy\CompanyPolicy\CodeAnalysisDictionary\*.xml" target="CompanyPolicy\CodeAnalysisDictionary"/>
-    <file src="src\ApplyCompanyPolicy\CompanyPolicy\StyleCop\*.StyleCop" target="CompanyPolicy\StyleCop"/>
-    <file src="src\ApplyCompanyPolicy\CompanyPolicy\Resharper\*.DotSettings" target="CompanyPolicy\Resharper"/>
+    <file src="src\AIT.ruleset" target="CompanyPolicy\StaticCodeAnalysis\AIT.ruleset"/>
+    <file src="src\Dummy.snk" target="CompanyPolicy\Signing\Dummy.snk"/>
+    <file src="src\AIT.CodeAnalysisDictionary.xml" target="CompanyPolicy\CodeAnalysisDictionary"/>
+    <file src="src\Settings.StyleCop" target="CompanyPolicy\StyleCop\Settings.StyleCop"/>
+    <file src="src\ApplyCompanyPolicy.sln.DotSettings" target="CompanyPolicy\Resharper\AIT.DotSettings"/>
   </files>
 </package>
