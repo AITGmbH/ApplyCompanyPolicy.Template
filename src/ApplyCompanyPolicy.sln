@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "ApplyCompanyPolicy", "ApplyCompanyPolicy\ApplyCompanyPolicy.nuproj", "{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyExampleUsage", "PolicyExampleUsage\PolicyExampleUsage.csproj", "{DBACB0F7-9895-401F-A4EA-7719216A4115}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Settings", ".Settings", "{A8C4AA33-43DE-4A05-A512-09EAC774D196}"
@@ -16,16 +14,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Settings", ".Settings", "{
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{EAB26A04-811E-4F03-BF84-2B49773E2940}"
+	ProjectSection(SolutionItems) = preProject
+		..\build.cmd = ..\build.cmd
+		..\build.fsx = ..\build.fsx
+		..\build.sh = ..\build.sh
+		..\buildConfig.fsx = ..\buildConfig.fsx
+		..\downloadNuget.fsx = ..\downloadNuget.fsx
+		..\generateDocs.fsx = ..\generateDocs.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DBACB0F7-9895-401F-A4EA-7719216A4115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DBACB0F7-9895-401F-A4EA-7719216A4115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBACB0F7-9895-401F-A4EA-7719216A4115}.Release|Any CPU.ActiveCfg = Release|Any CPU
