@@ -3,6 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>e9631d54-8a02-4a56-b9dc-4f36d5faabe3</ProjectGuid>
     <OutputPath>..\..\Bin\</OutputPath>
+	<SolutionDir>..\</SolutionDir>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <NuBuildVersionSource>Manual</NuBuildVersionSource>
     <NuBuildVersionFileName>True</NuBuildVersionFileName>
@@ -74,5 +75,23 @@
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
+  
   <Import Project="$(MSBuildExtensionsPath32)\NuBuild\v1\NuBuild.targets" />
+  
+  <Target Name="BeforeBuild">
+	<Message  Text="Copying AIT.CodeAnalysisDictionary.xml" />
+    <Copy SourceFiles="$(SolutionDir)AIT.CodeAnalysisDictionary.xml" DestinationFiles="$(ProjectDir)CompanyPolicy\CodeAnalysisDictionary\AIT.CodeAnalysisDictionary.xml" />
+	
+	<Message  Text="Copying ApplyCompanyPolicy.sln.DotSettings" />
+    <Copy SourceFiles="$(SolutionDir)ApplyCompanyPolicy.sln.DotSettings" DestinationFiles="$(ProjectDir)CompanyPolicy\Resharper\AIT.DotSettings" />
+	
+	<Message  Text="Copying AIT.ruleset" />
+    <Copy SourceFiles="$(SolutionDir)AIT.ruleset" DestinationFiles="$(ProjectDir)CompanyPolicy\StaticCodeAnalysis\AIT.ruleset" />
+	
+	<Message  Text="Copying Dummy.snk" />
+    <Copy SourceFiles="$(SolutionDir)Dummy.snk" DestinationFiles="$(ProjectDir)CompanyPolicy\Signing\Dummy.snk" />
+	
+	<Message  Text="Copying Settings.StyleCop" />
+    <Copy SourceFiles="$(SolutionDir)Settings.StyleCop" DestinationFiles="$(ProjectDir)CompanyPolicy\StyleCop\Settings.StyleCop" />
+  </Target>
 </Project>
