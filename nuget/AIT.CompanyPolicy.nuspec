@@ -8,7 +8,7 @@
     <owners>@authors@</owners>
     <licenseUrl>https://github.com/AITGmbH/AIT-Apply-Company-Policy-SDK/blob/develop/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/AITGmbH/AIT-Apply-Company-Policy-SDK</projectUrl>
-    <!--<iconUrl></iconUrl>-->
+    <iconUrl>http://www.aitgmbh.de/fileadmin/templates/templates2011/bilder/footer-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>@summary@</summary>
     <description>@description@</description>
@@ -16,6 +16,12 @@
     <copyright>Copyright 2015</copyright>
     <tags>@tags@</tags>
     @dependencies@
+    <!-- This is kind of a hack to make the package installable without content or references -->
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System" targetFramework="native0.0" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
   </metadata>
   <files>
     <!-- Add the install scripts to the package -->

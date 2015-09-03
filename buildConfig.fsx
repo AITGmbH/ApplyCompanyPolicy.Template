@@ -41,7 +41,7 @@ let buildConfig =
     ProjectSummary = "Applies the AIT Company Policy to the project.."
     ProjectDescription =
       "Applies the AIT Company Policy to the project.."
-    ProjectAuthors = ["AIT GmbH"]
+    ProjectAuthors = [ "Benjamin Fischer"; "Jan Mattner"; "Jakub Sabacinski"; "Boris Wehrle"; "Matthias Dittrich" ]
     NugetTags = "AIT Static Code Analysis Style Cop ReSharper Settings "
     PageAuthor = "AIT GmbH"
     GithubUser = "AITGmbH"
