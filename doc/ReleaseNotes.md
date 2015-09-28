@@ -1,3 +1,7 @@
+### 1.3.0-alpha4
+
+ * Don't show hint to insert 'this' when no 'this' is used.
+
 ### 1.3.0-alpha3
 
  * Rename repository and all links.
