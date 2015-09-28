@@ -1,7 +1,7 @@
-AIT Apply Company Policy SDK
+AIT Apply Company Policy Template
 ========================
 
-The AIT Apply Company Policy SDK lets you create your own code policy for Visual Studio, which can be easily distributed as NuGet package. For cleaner code and more efficient collaboration!
+The AIT Apply Company Policy Template lets you create your own code policy for Visual Studio, which can be easily distributed as NuGet package. For cleaner code and more efficient collaboration!
 
 ##Features
 - Easy installation as NuGet package.
@@ -14,7 +14,7 @@ The AIT Apply Company Policy SDK lets you create your own code policy for Visual
 - Easy customization
 
 ##Documentation
-See the [Wiki](https://github.com/AITGmbH/Apply-Company-Policy-SDK/wiki) for a detailed documentation.
+See the [Documentation Pages](https://aitgmbh.github.io/ApplyCompanyPolicy.Template) for a detailed documentation.
 
 ###Requirements
 - In order to open the projects, ensure that the [NuBuild Project System](https://visualstudiogallery.msdn.microsoft.com/3efbfdea-7d51-4d45-a954-74a2df51c5d0) is installed.

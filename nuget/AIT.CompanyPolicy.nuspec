@@ -6,8 +6,8 @@
     <version>@build.number@</version>
     <authors>@authors@</authors>
     <owners>@authors@</owners>
-    <licenseUrl>https://github.com/AITGmbH/AIT-Apply-Company-Policy-SDK/blob/develop/LICENSE.md</licenseUrl>
-    <projectUrl>https://github.com/AITGmbH/AIT-Apply-Company-Policy-SDK</projectUrl>
+    <licenseUrl>https://github.com/AITGmbH/ApplyCompanyPolicy.Template/blob/develop/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/AITGmbH/ApplyCompanyPolicy.Template</projectUrl>
     <iconUrl>http://www.aitgmbh.de/fileadmin/templates/templates2011/bilder/footer-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>@summary@</summary>

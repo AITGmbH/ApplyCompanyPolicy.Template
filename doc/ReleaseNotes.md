@@ -1,4 +1,8 @@
-﻿### 1.3.0-alpha2
+### 1.3.0-alpha3
+
+ * Rename repository and all links.
+
+### 1.3.0-alpha2
 
  * Make sure the package is installable by including "ghost" references to the System framework assembly.
 

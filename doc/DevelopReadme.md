@@ -1,2 +1,2 @@
-﻿# AIT.VisualStudio.ACP_SDK build and development documentation 
+﻿# ApplyCompanyPolicy.Template build and development documentation 
 

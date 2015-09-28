@@ -46,7 +46,7 @@ let buildConfig =
     PageAuthor = "AIT GmbH"
     GithubUser = "AITGmbH"
     // Defaults to ProjectName if unset
-    GithubProject = "AIT-Apply-Company-Policy-SDK"
+    GithubProject = "ApplyCompanyPolicy.Template"
     Version = release.NugetVersion
 (**
 Setup which nuget packages are created.
