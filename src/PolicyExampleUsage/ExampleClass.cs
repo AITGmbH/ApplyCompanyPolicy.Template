@@ -89,7 +89,7 @@ namespace PolicyExampleUsage
         /// </summary>
         protected ExampleClass(string privateReadOnlyVariable)
         {
-            this._privateReadOnlyVariable = privateReadOnlyVariable + this._privateReadOnlyVariable;
+            _privateReadOnlyVariable = privateReadOnlyVariable + _privateReadOnlyVariable;
         }
 
         /// <summary>
