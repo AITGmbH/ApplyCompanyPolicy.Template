@@ -38,9 +38,11 @@ let buildConfig =
  { BuildConfiguration.Defaults with
     ProjectName = "AIT.CompanyPolicy"
     CopyrightNotice = "Copyright © 2015, AIT GmbH & Co. KG"
-    ProjectSummary = "Applies the AIT Company Policy to the project.."
+    ProjectSummary = "Applies the AIT Company Policy to the project."
     ProjectDescription =
-      "Applies the AIT Company Policy to the project.."
+      "The AIT Apply Company Policy lets you apply the AIT code policy for Visual Studio, just by adding a NuGet package. " +
+      "For cleaner code and more efficient collaboration! " +
+      "More documentation can be found here: http://aitgmbh.github.io/ApplyCompanyPolicy.Template/"
     ProjectAuthors = [ "Benjamin Fischer"; "Jan Mattner"; "Jakub Sabacinski"; "Boris Wehrle"; "Matthias Dittrich" ]
     NugetTags = "AIT Static Code Analysis Style Cop ReSharper Settings "
     PageAuthor = "AIT GmbH"

@@ -1,3 +1,7 @@
+### 1.3.0-alpha5
+
+ * Update description on the nuget page.
+
 ### 1.3.0-alpha4
 
  * Don't show hint to insert 'this' when no 'this' is used.
