@@ -54,7 +54,7 @@ let buildConfig =
 Setup which nuget packages are created.
 *)
     NugetPackages =
-      [ "AIT.CompanyPolicy.nuspec", (fun config p ->
+      [ "CompanyPolicy.nuspec", (fun config p ->
           { p with
               Version = config.Version
               NoDefaultExcludes = true
