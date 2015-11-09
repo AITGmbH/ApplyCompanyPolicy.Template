@@ -4,8 +4,6 @@
 # Ignore files we copy within the build process
 __repository
 
-src/ApplyCompanyPolicy/CompanyPolicy/*
-!src/ApplyCompanyPolicy/CompanyPolicy/CompanyPolicy.config
 
 $tf/
 .fake/
