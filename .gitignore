@@ -194,6 +194,7 @@ TestResults.xml
 # Nuget outputs
 *.nuspec
 !nuget/*.nuspec
+!src/ApplyCompanyPolicy/ApplyCompanyPolicy.nuspec
 nuget/*.nupkg
 
 
