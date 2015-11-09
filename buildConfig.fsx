@@ -94,7 +94,7 @@ On default "./src/SharedAssemblyInfo.fs" and "./src/SharedAssemblyInfo.cs" are c
 Setup the builds
 *)
     BuildTargets =
-     [ BuildParams.WithSolution ]
+     [ BuildParams.Empty ]
 
     EnableDebugSymbolConversion = false
     RestrictReleaseToWindows = false
