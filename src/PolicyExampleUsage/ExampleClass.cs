@@ -1,13 +1,15 @@
-﻿// ReSharper disable UnusedMember.Local
-// ReSharper disable EventNeverSubscribedTo.Local
-
-namespace PolicyExampleUsage
+﻿namespace PolicyExampleUsage
 {
 #pragma warning disable 67 // Event never invoked.
 #pragma warning disable 169 // Unused variable
 #pragma warning disable 414 // Unused variable
+
+    #region
+
     using System;
     using System.Diagnostics.CodeAnalysis;
+
+    #endregion
 
     /// <summary>
     /// This class ensures that we can have 0 warnings -> we have no conflicts between StyleCop and ReSharper (naming
@@ -80,8 +82,8 @@ namespace PolicyExampleUsage
         public ExampleClass(string publicReadOnlyVariable, string publicVariable, string privateReadOnlyVariable, string privateVariable)
             : this(privateReadOnlyVariable, privateVariable)
         {
-            this.PublicReadOnlyVariable = publicReadOnlyVariable;
-            this.PublicVariable = publicVariable;
+            PublicReadOnlyVariable = publicReadOnlyVariable;
+            PublicVariable = publicVariable;
         }
 
         /// <summary>
@@ -98,7 +100,7 @@ namespace PolicyExampleUsage
         private ExampleClass(string privateReadOnlyVariable, string privateVariable)
             : this(privateReadOnlyVariable)
         {
-            this._privateVariable = privateVariable;
+            _privateVariable = privateVariable;
         }
 
         /// <summary>
@@ -110,6 +112,22 @@ namespace PolicyExampleUsage
         /// Some Documentation.
         /// </summary>
         private event EventHandler SimplePrivateEvent;
+
+        /// <summary>
+        /// More documentation.
+        /// </summary>
+        public string MyProperty
+        {
+            get
+            {
+                return _privateVariable + "test";
+            }
+
+            set
+            {
+                Console.WriteLine(value);
+            }
+        }
 
         /// <summary>
         /// Some documentation.
@@ -135,13 +153,13 @@ namespace PolicyExampleUsage
         /// <param name="data"></param>
         public void PublicMethod(string data)
         {
-            this._privateVariable = data;
+            _privateVariable = data;
         }
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         private string PrivateMethod()
         {
-            return this._privateReadOnlyVariable + this._privateVariable;
+            return _privateReadOnlyVariable + _privateVariable;
         }
     }
 }

@@ -30,10 +30,10 @@
 
     <!-- Add the config files for the extensions to the package -->
     <file src="CompanyPolicy\CompanyPolicy.config" target="CompanyPolicy"/>
-    <file src="CompanyPolicy\StaticCodeAnalysis\*.ruleset" target="CompanyPolicy\StaticCodeAnalysis"/>
-    <file src="CompanyPolicy\Signing\*.snk" target="CompanyPolicy\Signing"/>
-    <file src="CompanyPolicy\CodeAnalysisDictionary\*.xml" target="CompanyPolicy\CodeAnalysisDictionary"/>
-    <file src="CompanyPolicy\StyleCop\*.StyleCop" target="CompanyPolicy\StyleCop"/>
-    <file src="CompanyPolicy\Resharper\*.DotSettings" target="CompanyPolicy\Resharper"/>
+    <file src="..\*.ruleset" target="CompanyPolicy\StaticCodeAnalysis"/>
+    <file src="..\*.snk" target="CompanyPolicy\Signing"/>
+    <file src="..\*.CodeAnalysisDictionary.xml" target="CompanyPolicy\CodeAnalysisDictionary"/>
+    <file src="..\*.StyleCop" target="CompanyPolicy\StyleCop"/>
+    <file src="..\ApplyCompanyPolicy.sln.DotSettings" target="CompanyPolicy\Resharper\AIT.DotSettings"/>
   </files>
 </package>

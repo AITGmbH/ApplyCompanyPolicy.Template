@@ -24,11 +24,6 @@
   <ItemGroup>
     <Folder Include="build\native" />
     <Folder Include="CompanyPolicy" />
-    <Folder Include="CompanyPolicy\CodeAnalysisDictionary" />
-    <Folder Include="CompanyPolicy\Resharper" />
-    <Folder Include="CompanyPolicy\StyleCop" />
-    <Folder Include="CompanyPolicy\Signing" />
-    <Folder Include="CompanyPolicy\StaticCodeAnalysis" />
     <Folder Include="build" />
     <Folder Include="tools" />
     <Folder Include="tools\native" />
@@ -41,22 +36,7 @@
     <Content Include="build\native\AIT.CompanyPolicy.targets">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="CompanyPolicy\CodeAnalysisDictionary\AIT.CodeAnalysisDictionary.xml">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="CompanyPolicy\CompanyPolicy.config">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="CompanyPolicy\Resharper\AIT.DotSettings">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="CompanyPolicy\Signing\Dummy.snk">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="CompanyPolicy\StaticCodeAnalysis\AIT.ruleset">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="CompanyPolicy\StyleCop\Settings.StyleCop">
       <SubType>Content</SubType>
     </Content>
     <Content Include="tools\Install.ps1">
@@ -76,16 +56,4 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\NuBuild\v1\NuBuild.targets" />
-  <Target Name="BeforeBuild">
-    <Message Text="Copying AIT.CodeAnalysisDictionary.xml" />
-    <Copy DestinationFiles="$(SolutionDir)AIT.CodeAnalysisDictionary.xml" SourceFiles="$(ProjectDir)CompanyPolicy\CodeAnalysisDictionary\AIT.CodeAnalysisDictionary.xml" />
-    <Message Text="Copying ApplyCompanyPolicy.sln.DotSettings" />
-    <Copy DestinationFiles="$(SolutionDir)ApplyCompanyPolicy.sln.DotSettings" SourceFiles="$(ProjectDir)CompanyPolicy\Resharper\AIT.DotSettings" />
-    <Message Text="Copying AIT.ruleset" />
-    <Copy DestinationFiles="$(SolutionDir)AIT.ruleset" SourceFiles="$(ProjectDir)CompanyPolicy\StaticCodeAnalysis\AIT.ruleset" />
-    <Message Text="Copying Dummy.snk" />
-    <Copy DestinationFiles="$(SolutionDir)Dummy.snk" SourceFiles="$(ProjectDir)CompanyPolicy\Signing\Dummy.snk" />
-    <Message Text="Copying Settings.StyleCop" />
-    <Copy DestinationFiles="$(SolutionDir)Settings.StyleCop" SourceFiles="$(ProjectDir)CompanyPolicy\StyleCop\Settings.StyleCop" />
-  </Target>
 </Project>

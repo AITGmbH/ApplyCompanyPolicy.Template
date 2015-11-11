@@ -3,7 +3,6 @@
    	<!--
 	    Specifies all targets that should be done after a successful build
       This target is still empty and does not do anything
-  
     -->
    <Target Name="AfterBuildTargets" AfterTargets="Build">
   
