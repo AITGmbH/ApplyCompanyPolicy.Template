@@ -63,11 +63,6 @@ Setup which nuget packages are created.
                 [ ]
                   |> List.map (fun name -> name, (GetPackageVersion "packages" name |> RequireExactly)) } ) ]
 (**
-With `UseNuget` you can specify if AIT.Build should restore nuget packages
-before running the build (if you only use paket, you either leave it out or use the default setting = false).
-*)
-    UseNuget = true
-(**
 ## The `GeneratedFileList` property
 
 The `GeneratedFileList` list is used to specify which files are copied over to the release directory.
