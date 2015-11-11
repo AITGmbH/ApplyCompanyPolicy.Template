@@ -1,3 +1,7 @@
+### 1.3.0-alpha6
+
+ * remove 'this.' on full cleanup.
+
 ### 1.3.0-alpha5
 
  * Update description on the nuget page.
