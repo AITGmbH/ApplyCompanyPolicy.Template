@@ -13,6 +13,10 @@
 #load "packages/AIT.Build/content/buildConfigDef.fsx"
 #endif
 
+#r "packages/FSharp.Data/lib/net40/FSharp.Data.dll"
+#r "System.Xml"
+#r "System.Xml.Linq"
+
 (**
 ## Required config start
 
@@ -21,6 +25,8 @@ First We need to load some dependencies and open some namespaces.
 open BuildConfigDef
 open System.Collections.Generic
 open System.IO
+open FSharp.Data
+
 
 open Fake
 open Fake.Git
@@ -29,22 +35,29 @@ open AssemblyInfoFile
 
 (**
 ## Main project configuration
-
 Then we need to set some general properties of the project.
 *)
+type NuSpecFile = FSharp.Data.XmlProvider<"src/ApplyCompanyPolicy/ApplyCompanyPolicy.nuspec">
+let nuspecFile = NuSpecFile.GetSample()
+
+
 let buildConfig =
  // Read release notes document
  let release = ReleaseNotesHelper.parseReleaseNotes (File.ReadLines "doc/ReleaseNotes.md")
+ let nuspecVersion = SemVerHelper.parse nuspecFile.Metadata.Version
+ let releaseNoteVersion = release.SemVer
+ if nuspecVersion > releaseNoteVersion then
+    failwith "Please add documentation for version %s!" nuspecFile.Metadata.Version
  { BuildConfiguration.Defaults with
-    ProjectName = "AIT.CompanyPolicy"
-    CopyrightNotice = "Copyright © 2015, AIT GmbH & Co. KG"
-    ProjectSummary = "Applies the AIT Company Policy to the project."
-    ProjectDescription =
-      "The AIT Apply Company Policy lets you apply the AIT code policy for Visual Studio, just by adding a NuGet package. " +
-      "For cleaner code and more efficient collaboration! " +
-      "More documentation can be found here: http://aitgmbh.github.io/ApplyCompanyPolicy.Template/"
-    ProjectAuthors = [ "Benjamin Fischer"; "Jan Mattner"; "Jakub Sabacinski"; "Boris Wehrle"; "Matthias Dittrich" ]
-    NugetTags = "AIT Static Code Analysis Style Cop ReSharper Settings "
+    ProjectName = nuspecFile.Metadata.Id
+    CopyrightNotice = nuspecFile.Metadata.Copyright
+    ProjectSummary = nuspecFile.Metadata.Summary
+    ProjectDescription = nuspecFile.Metadata.Description
+    ProjectAuthors =
+        nuspecFile.Metadata.Authors.Split([|','|])
+        |> Seq.map (fun l -> l.Trim())
+        |> Seq.toList
+    NugetTags = nuspecFile.Metadata.Tags
     PageAuthor = "AIT GmbH"
     GithubUser = "AITGmbH"
     // Defaults to ProjectName if unset
@@ -54,14 +67,12 @@ let buildConfig =
 Setup which nuget packages are created.
 *)
     NugetPackages =
-      [ "CompanyPolicy.nuspec", (fun config p ->
+      [ "../src/ApplyCompanyPolicy/ApplyCompanyPolicy.nuspec", (fun config p ->
           { p with
+              WorkingDir = "src/ApplyCompanyPolicy"
               Version = config.Version
               NoDefaultExcludes = true
-              ReleaseNotes = toLines release.Notes
-              Dependencies =
-                [ ]
-                  |> List.map (fun name -> name, (GetPackageVersion "packages" name |> RequireExactly)) } ) ]
+              ReleaseNotes = toLines release.Notes } ) ]
 (**
 ## The `GeneratedFileList` property
 
@@ -103,4 +114,3 @@ You can setup FAKE variables as well.
 
 if isMono then
     monoArguments <- "--runtime=v4.0 --debug"
-
