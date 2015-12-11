@@ -2,9 +2,10 @@ source https://nuget.org/api/v2
 
 // Build
 nuget FAKE
-nuget FSharp.Formatting
-nuget FSharp.Compiler.Service
+nuget FSharp.Formatting == 2.12.0
+nuget FSharp.Compiler.Service == 1.4.0.6
 nuget FSharp.Data
+nuget FSharpVSPowerTools.Core == 2.1.0
 
 //Tests
 nuget Nuget.CommandLine
