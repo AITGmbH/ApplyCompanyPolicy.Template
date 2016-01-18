@@ -122,7 +122,23 @@
             {
                 return _privateVariable + "test";
             }
+            set
+            {
+                Console.WriteLine(value);
+            }
+        }
 
+        /// <summary>
+        /// More documentation.
+        /// </summary>
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        private string MyPrivateProperty
+        {
+            get
+            {
+                return _privateVariable + "test";
+            }
             set
             {
                 Console.WriteLine(value);
