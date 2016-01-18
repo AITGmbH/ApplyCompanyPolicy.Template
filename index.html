@@ -5,7 +5,7 @@
     <title>AIT Apply Company Policy Template
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Applies the AIT Company Policy to the project.">
+    <meta name="description" content="The AIT Apply Company Policy (ACP) helps to enforce and control company-wide policies. The aim is to increase code quality and ensure better collaboration of software development teams.">
     <meta name="author" content="Benjamin Fischer">
 
     <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
@@ -36,7 +36,7 @@
       <div class="row">
         <div class="span9" id="main">
           
-<!-- GENERATED FROM COMMIT: 12e459adf51a58d02a6eabe4f550603d7faedb8b -->
+<!-- GENERATED FROM COMMIT: 39232cce94bafbe26978a38cf0d982eb9151b8ba -->
 <h1><a name="AIT-Apply-Company-Policy-Template" class="anchor" href="#AIT-Apply-Company-Policy-Template">AIT Apply Company Policy Template</a></h1>
 
 <p>The AIT Apply Company Policy Template lets you create your own code policy for Visual Studio, which can be easily distributed as NuGet package. For cleaner code and more efficient collaboration!</p>
@@ -56,7 +56,8 @@
 
 <h2><a name="Documentation" class="anchor" href="#Documentation">Documentation</a></h2>
 
-<p>See the <a href="https://aitgmbh.github.io/ApplyCompanyPolicy.Template">Documentation Pages</a> for a detailed documentation.</p>
+<p>See the <a href="https://aitgmbh.github.io/ApplyCompanyPolicy.Template">Documentation Pages</a> for a detailed documentation.
+And look <a href="https://aitgmbh.github.io/ApplyCompanyPolicy.Template/CreatePackage.html">here</a> for steps to create a customized package (also take a note of the known issues down below).</p>
 
 <h3><a name="Requirements" class="anchor" href="#Requirements">Requirements</a></h3>
 
@@ -81,7 +82,10 @@
 <h2><a name="Known-Issues" class="anchor" href="#Known-Issues">Known Issues</a></h2>
 
 <ul>
-<li>There is a known bug concerning the update functionality of NuGet packages. This bug can appear when updating a single package under source control in Microsoft TFS using local Workspaces. For further information visit the discussion at <a href="https://github.com/NuGet/Home/issues/491">NuGet</a> and the issue at <a href="https://connect.microsoft.com/VisualStudio/feedback/details/1344773/tfs-local-workspace-marks-files-as-deleted">Microsoft</a>. To prevent this bug from appearing, do not use the NuGet update-package functionality when there is only one NuGet package installed. Rather uninstall and install the package manually.</li>
+<li><p>There is a known bug concerning the update functionality of NuGet packages. This bug can appear when updating a single package under source control in Microsoft TFS using local Workspaces. For further information visit the discussion at <a href="https://github.com/NuGet/Home/issues/491">NuGet</a> and the issue at <a href="https://connect.microsoft.com/VisualStudio/feedback/details/1344773/tfs-local-workspace-marks-files-as-deleted">Microsoft</a>. To prevent this bug from appearing, do not use the NuGet update-package functionality when there is only one NuGet package installed. Rather uninstall and install the package manually.</p></li>
+<li>Make sure that you only have the 'NuBuild Project System' for Visual Studio installed and not the 'NuGet Package Project'-Extension.
+Those two extensions are incompatible and having 'NuGet Package Project' installed will make it impossible to use this project.
+This limitation only hits you when you try to create your own 'CompanyPolicy' package, not when you are just using the final NuGet package.</li>
 </ul>
 
 <p>This software is provided by <a href="http://www.aitgmbh.de/en/">AIT GmbH &amp; Co. KG</a>.</p>
@@ -104,15 +108,16 @@
             <li><a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template/issues/new">Report Issue or Request Feature</a></li>
             <li><a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template/blob/develop/LICENSE.md">License (MIT)</a></li>
             <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/Contributing.html">Contributing</a></li>
-            
+
             <li class="nav-header">Documentation</li>
-              
+
             <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/index.html">Quick Intro</a></li>
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/CreatePackage.html">Create a customized Package</a></li>
             <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/DevelopReadme.html">Development Intro</a></li>
 
             <li class="nav-header">Reference</li>
-              
+
             <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/references/index.html">API Reference</a></li>
 
           </ul>

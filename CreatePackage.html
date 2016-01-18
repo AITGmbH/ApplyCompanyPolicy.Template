@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Using ApplyCompanyPolicy.Template to build your own package
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The AIT Apply Company Policy (ACP) helps to enforce and control company-wide policies. The aim is to increase code quality and ensure better collaboration of software development teams.">
+    <meta name="author" content="Benjamin Fischer">
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/content/style.css" />
+    <link type="text/css" rel="stylesheet" href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/content/prism.css" />
+    <script type="text/javascript" src="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/content/tips.js"></script>
+    <script type="text/javascript" src="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/content/prism.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="http://tpetricek.github.io/FSharp.Formatting/"><img height="16" width="16" src="https://matthid.github.io/Yaaf.AdvancedBuilding/content/img/FSharp.Formatting.png" /> F# Formatting</a></li>
+        </ul>
+        <h3 class="muted"><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/index.html">AIT.CompanyPolicy</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+<h1><a name="Using-ApplyCompanyPolicy-Template-to-build-your-own-package" class="anchor" href="#Using-ApplyCompanyPolicy-Template-to-build-your-own-package">Using ApplyCompanyPolicy.Template to build your own package</a></h1>
+
+<p>This section briefly explains what you need to do in order to customize the rule-set and publish your own package (to your companies internal NuGet feed for example).</p>
+
+<h2><a name="The-simple-way-customizing-the-rule-sets" class="anchor" href="#The-simple-way-customizing-the-rule-sets">The simple way (customizing the rule-sets)</a></h2>
+
+<p>These steps have been verified to work with Visual Studio 2015 Update 1, Resharper 9.2, <a href="https://github.com/Visual-Stylecop/Visual-StyleCop">https://github.com/Visual-Stylecop/Visual-StyleCop</a> in versin 4.7.58.3 + Standalone installer 4.7.49.0 (for editing .StyleCop files), NuBuild 1.12 (Standalone msi installer)</p>
+
+<ol>
+<li><p>Clone the project.</p>
+<pre class="line-numbers language-shell"><code class="language-shell">git clone https://github.com/AITGmbH/ApplyCompanyPolicy.Template.git
+</code></pre>
+<p>Open Visual Studio by navigating into the 'src' directory and opening 'ApplyCompanyPolicy.sln' (we use 'src/ApplyCompanyPolicy.sln' from now on).</p></li>
+<li><p>Rename the package to match your company.</p>
+<p>Open 'src/ApplyCompanyPolicy/ApplyCompanyPolicy.nuspec' and edit it to your needs. At least you want to change the <code>&lt;id&gt;</code> and <code>&lt;title&gt;</code> fields:</p>
+<pre class="line-numbers language-xml"><code class="language-xml"> &lt;id&gt;MyCompanyPolicy&lt;/id&gt;
+ &lt;title&gt;MyCompanyPolicy&lt;/title&gt;
+</code></pre>
+<p>You are now basically good to go. Just Right-Click the 'ApplyCompanyPolicy' and select 'Build'.</p>
+<blockquote>
+<h3><a name="WARNING" class="anchor" href="#WARNING">WARNING</a></h3>
+
+  <p>You need to rename the MsBuild scripts as well. The default script is empty so it doesn't matter but remember it right away before you forget it (see 3.b)</p>
+</blockquote>
+<p>You can find the finished package in 'release/nuget/MyCompanyPolicy.<version>.nupkg'. Upload it to your favorite NuGet Feed and you can use it in your next C#/.Net project immediately.</p>
+<p>Of course this was only a simple name change and you might want to customize the package (because otherwise you could have used the default AIT package from the <a href="https://www.nuget.org/packages/AIT.CompanyPolicy/">official NuGet Feed</a>).</p></li>
+<li><p>Edit your rule-set files. Any of these steps is optional and you might as well go with the default rule-set.</p>
+<ul>
+<li><p>Visual Studio -&gt; Resharper -&gt; Manage Options -&gt; Solution Team Shared -&gt; Edit Layer</p>
+<p><img src="/content/img/resharper_edit_layer.jpg" alt="Resharper edit layer" /></p></li>
+<li><p>Add MsBuild-Targets via 'src/ApplyCompanyPolicy/build/AIT.ApplyCompany.targets'. 
+(Or in VisualStudio in the 'ApplyCompanyPolicy' Project -&gt; 'build' -&gt; 'AIT.ApplyCompanyPolicy.targets').
+WARNING this file needs to use the same name as the final NuGet package, therefore you need to rename it to match new name given in step 2.
+See <a href="https://docs.nuget.org/create/creating-and-publishing-a-package#import-msbuild-targets-and-props-files-into-project">https://docs.nuget.org/create/creating-and-publishing-a-package#import-msbuild-targets-and-props-files-into-project</a> for details.</p></li>
+<li><p>Edit the StyleCop file by installing StyleCop to your machine and opening 'src/Settings.StyleCop'. See <a href="https://stylecop.codeplex.com/wikipage?title=Managing%20StyleCop%20Project%20Settings.">https://stylecop.codeplex.com/wikipage?title=Managing%20StyleCop%20Project%20Settings.</a> 
+NOTE that opening 'Source Analysis Settings' doesn't work from within latest Visual Studio (2015), but double clicking the file works.</p></li>
+<li><p>Code Analysis: Open the '.Settings/AIT.ruleset' file from within Visual Studio and edit the rules.
+Open '.Settings/AIT.CodeAnalysisDictionary.xml' to insert acronyms used in your source code.</p></li>
+</ul></li>
+<li><p>Remove unwanted settings.</p>
+<p>Just open the 'nuspec' from step 2 and remove all entries in <code>&lt;files&gt;</code> you no longer want to distribute. Here is a list:</p>
+<ul>
+<li><code>&lt;file src="tools\**.ps1" target="tools"/&gt;</code>: Infrastructure, leave as-is. This is the basic script which installs the package.</li>
+<li><code>&lt;file src="build\**" target="build"/&gt;</code>: The custom MsBuild Properties (.props) and Targets (.targets)</li>
+<li><code>&lt;file src="CompanyPolicy\CompanyPolicy.config" target="CompanyPolicy"/&gt;</code>: Infrastructure, leave as-is</li>
+<li><code>&lt;file src="..\*.ruleset" target="CompanyPolicy\StaticCodeAnalysis"/&gt;</code>: Code-Analysis configuration.</li>
+<li><code>&lt;file src="..\*.snk" target="CompanyPolicy\Signing"/&gt;</code>: Key file for signing code.</li>
+<li><code>&lt;file src="..\*.CodeAnalysisDictionary.xml" target="CompanyPolicy\CodeAnalysisDictionary"/&gt;</code>: Dictionary for Code-Analysis.</li>
+<li><code>&lt;file src="..\*.StyleCop" target="CompanyPolicy\StyleCop"/&gt;</code>: Configuration for StypeCop.</li>
+<li><p><code>&lt;file src="..\ApplyCompanyPolicy.sln.DotSettings" target="CompanyPolicy\Resharper\AIT.DotSettings"/&gt;</code>: Resharper settings file. Note that this 'AIT' is invisible because it will be replaced by the package-name by the install script.</p></li>
+</ul></li>
+<li><p>Verify compatibility with the example project.</p>
+<p>You can now verify that your rules between the different projects are compatible by using the PolicyExampleUsage project.
+Just build the example project and see if you get any errors.
+Depending on the rules you changed you might want to test if the R# Code-Cleanup rules are compatible with all your settings:</p>
+<ul>
+<li>Open <code>ExampleClass.cs</code> and do a full code cleanup.</li>
+<li><p>Compile the project and look for errors.</p>
+<p>If you can't make the PolicyExampleUsage project compile without errors and warnings (after making the changes your policy suggests) your rules are probably incompatible between the different tools and you probably shouldn't roll-out the policy or disable some rules.</p></li>
+</ul></li>
+<li><p>Release.</p>
+<p>Just build the project and release the NuGet package (see step 2).</p></li>
+</ol>
+
+<h2><a name="Advanced-topics-customizing-the-scripts-or-using-a-build-server" class="anchor" href="#Advanced-topics-customizing-the-scripts-or-using-a-build-server">Advanced topics (customizing the scripts or using a build server)</a></h2>
+
+<h3><a name="Building-the-project-in-a-build-server" class="anchor" href="#Building-the-project-in-a-build-server">Building the project in a build server</a></h3>
+
+<p>As it is hard to install dependencies on a build server (or a infrastructural problem that can take a while to solve) we provide a powerful
+build system as part of this package to build the Policy Package without the need to install for example 'NuBuild' on your build server.</p>
+
+<p>Just setup your build server to call</p>
+
+<pre class="line-numbers language-shell"><code class="language-shell">build.cmd
+</code></pre>
+
+<p>to build the package. Your build server needs access to the Internet though to resolve the dependencies (for the build system itself).</p>
+
+<p>This will make sure that the package is build and verified (see point 5 from above) and the NuGet package is available in 'release/nuget/' as it is when using NuBuild from within Visual Studio.</p>
+
+<h3><a name="Editing-the-install-scripts" class="anchor" href="#Editing-the-install-scripts">Editing the install scripts</a></h3>
+
+<p>You can customize the installation behavior by editing 'src/ApplyCompanyPolicy/tools/Install.ps1' and 'src/ApplyCompanyPolicy/tools/Uninstall.ps1'.</p>
+
+<h3><a name="Use-the-documentation" class="anchor" href="#Use-the-documentation">Use the documentation</a></h3>
+
+<p>You can disable the documentation generation by changing the line <code>BuildDocumentation = true</code> to <code>BuildDocumentation = false</code> in <code>buildConfig.fsx</code>.
+You can edit and use the <a href="http://aitgmbh.github.io/ApplyCompanyPolicy.Template/">documentation generation</a> (which is part of the repository and executed with <code>build.cmd</code>) and use it for your own policy package. If you want this please open a issue and ask for it.
+This section will be extended on-demand.
+To help yourself we are using the <a href="http://tpetricek.github.io/FSharp.Formatting/">FSharp.Formatting</a> package to create html by using markup files.
+You can edit <code>packages/AIT.Build/content/generateDocsInclude.fsx</code> to fit your needs or (the clean solution) add a new <code>Target</code> to <code>generateDocs.fsx</code>.
+We are using <a href="http://fsharp.github.io/FAKE/">FAKE</a> as build system.</p>
+
+
+        </div>
+        <div class="span3">
+          <a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/index.html">
+            <img src="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/content/img/logo.png" style="width:140px;height:140px;margin:10px 0px 0px 35px;border-style:none;" />
+          </a>
+
+          <ul class="nav nav-list" id="menu">
+
+            <li class="nav-header">AIT.CompanyPolicy</li>
+
+            <li class="divider"></li>
+            <li><a href="https://www.nuget.org/packages/AIT.CompanyPolicy/">Get AIT.CompanyPolicy package via NuGet</a></li>
+            <li><a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template">Source Code</a></li>
+            <li><a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template/issues">Open bugs and feature requests</a></li>
+            <li><a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template/issues/new">Report Issue or Request Feature</a></li>
+            <li><a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template/blob/develop/LICENSE.md">License (MIT)</a></li>
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/Contributing.html">Contributing</a></li>
+
+            <li class="nav-header">Documentation</li>
+
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/index.html">Quick Intro</a></li>
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/CreatePackage.html">Create a customized Package</a></li>
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/ReleaseNotes.html">Release Notes</a></li>
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/DevelopReadme.html">Development Intro</a></li>
+
+            <li class="nav-header">Reference</li>
+
+            <li><a href="https://AITGmbH.github.io/ApplyCompanyPolicy.Template/references/index.html">API Reference</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+      <a href="https://github.com/AITGmbH/ApplyCompanyPolicy.Template"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    </body>
+  </html>
