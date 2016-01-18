@@ -1,3 +1,8 @@
+### 1.3.0
+
+ * Smaller rule changes (disable SA1513 and SA1516 because they are not compatible with no empty line between C# getters and setters and R# has no settings for it to insert the blank line on full-cleanup).
+ * Update documentation and add a how-to for creating packages (https://aitgmbh.github.io/ApplyCompanyPolicy.Template/CreatePackage.html).
+
 ### 1.3.0-alpha6
 
  * remove 'this.' on full cleanup.

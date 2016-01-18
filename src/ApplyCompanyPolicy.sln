@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolicyExampleUsage", "PolicyExampleUsage\PolicyExampleUsage.csproj", "{DBACB0F7-9895-401F-A4EA-7719216A4115}"
 EndProject
@@ -31,7 +31,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{C43346DA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{7BD45071-33AD-491C-9C33-6D33898167CA}"
 	ProjectSection(SolutionItems) = preProject
+		..\CONTRIBUTING.md = ..\CONTRIBUTING.md
+		..\doc\CreatePackage.md = ..\doc\CreatePackage.md
 		..\doc\DevelopReadme.md = ..\doc\DevelopReadme.md
+		..\LICENSE.md = ..\LICENSE.md
+		..\README.md = ..\README.md
 		..\doc\ReleaseNotes.md = ..\doc\ReleaseNotes.md
 	EndProjectSection
 EndProject
@@ -69,9 +73,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{B7354989-EDA
 		..\doc\content\img\github.png = ..\doc\content\img\github.png
 		..\doc\content\img\logo-template.pdn = ..\doc\content\img\logo-template.pdn
 		..\doc\content\img\logo.png = ..\doc\content\img\logo.png
+		..\doc\content\img\resharper_edit_layer.jpg = ..\doc\content\img\resharper_edit_layer.jpg
 	EndProjectSection
 EndProject
-Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "ApplyCompanyPolicy", "ApplyCompanyPolicy\ApplyCompanyPolicy.nuproj", "{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}"
+Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "ApplyCompanyPolicy", "ApplyCompanyPolicy\ApplyCompanyPolicy.nuproj", "{E9631D54-8A02-4A56-B9DC-4F36D5FAABE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

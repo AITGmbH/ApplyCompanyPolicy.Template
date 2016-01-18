@@ -47,7 +47,7 @@ let buildConfig =
  let nuspecVersion = SemVerHelper.parse nuspecFile.Metadata.Version
  let releaseNoteVersion = release.SemVer
  if nuspecVersion > releaseNoteVersion then
-    failwith "Please add documentation for version %s!" nuspecFile.Metadata.Version
+    failwithf "Please add documentation for version %s!" nuspecFile.Metadata.Version
  { BuildConfiguration.Defaults with
     ProjectName = nuspecFile.Metadata.Id
     CopyrightNotice = nuspecFile.Metadata.Copyright
@@ -59,6 +59,7 @@ let buildConfig =
         |> Seq.toList
     NugetTags = nuspecFile.Metadata.Tags
     PageAuthor = "AIT GmbH"
+    BuildDocumentation = true
     GithubUser = "AITGmbH"
     // Defaults to ProjectName if unset
     GithubProject = "ApplyCompanyPolicy.Template"
