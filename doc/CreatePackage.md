@@ -35,7 +35,7 @@ These steps have been verified to work with Visual Studio 2015 Update 1, Resharp
 
    - Visual Studio -> Resharper -> Manage Options -> Solution Team Shared -> Edit Layer
      
-	  ![Resharper edit layer](/content/img/resharper_edit_layer.jpg) 
+	  ![Resharper edit layer](/ApplyCompanyPolicy.Template/content/img/resharper_edit_layer.jpg) 
 
    - Add MsBuild-Targets via 'src/ApplyCompanyPolicy/build/AIT.ApplyCompany.targets'. 
       (Or in VisualStudio in the 'ApplyCompanyPolicy' Project -> 'build' -> 'AIT.ApplyCompanyPolicy.targets').
