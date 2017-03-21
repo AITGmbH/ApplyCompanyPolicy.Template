@@ -86,6 +86,7 @@ type BuildConfiguration =
     /// Enable all github integrations (pushing documentation)
     EnableGithub : bool
     GithubUser : string
+    UseHttpsGitHubAuth: bool
     /// Defaults to ProjectName
     GithubProject : string
     PageAuthor : string
@@ -161,6 +162,7 @@ type BuildConfiguration =
       NugetTags = ""
       PageAuthor = ""
       GithubUser = ""
+      UseHttpsGitHubAuth = true
       GithubProject = ""
       SetAssemblyFileVersions = (fun config ->
         let info =

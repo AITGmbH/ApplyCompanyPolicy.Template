@@ -320,6 +320,12 @@ let packSetup config p =
       Publish = false
       Dependencies = [ ] }
 
+let getRepo = 
+    if config.UseHttpsGitHubAuth then
+        (sprintf "https://github.com/%s/%s.git" config.GithubUser config.GithubProject)
+    else
+        (sprintf "git@github.com:%s/%s.git" config.GithubUser config.GithubProject)
+
 MyTarget "NuGetPack" (fun _ ->
     ensureDirectory config.OutNugetDir
     for (nuspecFile, settingsFunc) in config.NugetPackages do
@@ -346,7 +352,7 @@ MyTarget "WatchDocs" (fun _ -> buildDocumentationTarget "WatchDocs")
 MyTarget "AllDocs" (fun _ -> buildDocumentationTarget "AllDocs")
 
 MyTarget "ReleaseGithubDoc" (fun isSingle ->
-    let repro = (sprintf "git@github.com:%s/%s.git" config.GithubUser config.GithubProject)
+    let repro = getRepo
     let doAction =
         if isSingle then true
         else
@@ -380,7 +386,7 @@ MyTarget "VersionBump" (fun _ ->
       if not isLocalBuild && buildServer = BuildServer.TeamFoundation then
         let workingDir = repositoryHelperDir
         // We are not in a git repository, because the .git folder is missing.
-        let repro = (sprintf "git@github.com:%s/%s.git" config.GithubUser config.GithubProject)
+        let repro = getRepo
         CleanDir workingDir
         clone "" repro workingDir
         checkoutBranch workingDir (Information.getCurrentSHA1("."))
