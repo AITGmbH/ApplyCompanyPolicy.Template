@@ -97,7 +97,7 @@ On default "./src/SharedAssemblyInfo.fs" and "./src/SharedAssemblyInfo.cs" are c
           Attribute.InformationalVersion config.Version]
       ignore info)
 (**
-## Yaaf.AdvancedBuilding features
+## AIT.Build features
 Setup the builds
 *)
     BuildTargets =
