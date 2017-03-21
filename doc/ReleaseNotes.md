@@ -1,3 +1,7 @@
+### 1.4.0-alpha1
+
+* Fix issue #3 - Whole ItemGroup of existing CodeAnalysisDictionary is removed on installation
+
 ### 1.3.0
 
  * Smaller rule changes (disable SA1513 and SA1516 because they are not compatible with no empty line between C# getters and setters and R# has no settings for it to insert the blank line on full-cleanup).
