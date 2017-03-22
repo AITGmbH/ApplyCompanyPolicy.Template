@@ -1,3 +1,7 @@
+### 1.4.0
+
+* Simplify FAKE scripts (remove publishing logic)
+
 ### 1.4.0-alpha1
 
 * Fix issue #3 - Whole ItemGroup of existing CodeAnalysisDictionary is removed on installation

@@ -2,13 +2,12 @@
 // This file is subject to the terms and conditions defined in
 // file 'LICENSE.txt', which is part of this source code package.
 // ----------------------------------------------------------------------------
-#I @"../../FAKE/tools/"
+#I @"packages/FAKE/tools/"
 #r @"FakeLib.dll"
 // NOTE: We cannot add those here because FSharp.Formatting requires Razor2
 //#I @"../../FSharp.Compiler.Service/lib/net40/"
 //#I @"../../Yaaf.FSharp.Scripting/lib/net40/"
 //#I "../tools/"
-//#r "AIT.Build.dll"
 
 
 open System.IO
@@ -86,7 +85,6 @@ type BuildConfiguration =
     /// Enable all github integrations (pushing documentation)
     EnableGithub : bool
     GithubUser : string
-    UseHttpsGitHubAuth: bool
     /// Defaults to ProjectName
     GithubProject : string
     PageAuthor : string
@@ -162,7 +160,6 @@ type BuildConfiguration =
       NugetTags = ""
       PageAuthor = ""
       GithubUser = ""
-      UseHttpsGitHubAuth = true
       GithubProject = ""
       SetAssemblyFileVersions = (fun config ->
         let info =

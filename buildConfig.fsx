@@ -7,11 +7,7 @@
 # AIT.VisualStudioTextTransform buildConfig.fsx configuration
 *)
 
-#if FAKE
-#else
-// Support when file is opened in Visual Studio
-#load "packages/AIT.Build/content/buildConfigDef.fsx"
-#endif
+#load "buildConfigDef.fsx"
 
 #r "packages/FSharp.Data/lib/net40/FSharp.Data.dll"
 #r "System.Xml"

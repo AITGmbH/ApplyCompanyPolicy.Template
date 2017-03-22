@@ -91,7 +91,7 @@ build.cmd
 
 to build the package. Your build server needs access to the Internet though to resolve the dependencies (for the build system itself).
 
-This will make sure that the package is build and verified (see point 5 from above) and the NuGet package is available in 'release/nuget/' as it is when using NuBuild from within Visual Studio.
+This will make sure that the package is built and verified (see point 5 from above) and the NuGet package is available in 'release/nuget/' as it is when using NuBuild from within Visual Studio.
 
 ### Editing the install scripts
 
@@ -100,8 +100,8 @@ You can customize the installation behavior by editing 'src/ApplyCompanyPolicy/t
 ### Use the documentation
 
 You can disable the documentation generation by changing the line `BuildDocumentation = true` to `BuildDocumentation = false` in `buildConfig.fsx`.
-You can edit and use the [documentation generation](http://aitgmbh.github.io/ApplyCompanyPolicy.Template/) (which is part of the repository and executed with `build.cmd`) and use it for your own policy package. If you want this please open a issue and ask for it.
+You can edit and use the [documentation generation](http://aitgmbh.github.io/ApplyCompanyPolicy.Template/) (which is part of the repository and executed with `build.cmd`) and use it for your own policy package. If you want this please open an issue and ask for it.
 This section will be extended on-demand.
 To help yourself we are using the [FSharp.Formatting](http://tpetricek.github.io/FSharp.Formatting/) package to create html by using markup files.
-You can edit `packages/AIT.Build/content/generateDocsInclude.fsx` to fit your needs or (the clean solution) add a new `Target` to `generateDocs.fsx`.
+You can edit `generateDocs.fsx` to fit your needs.
 We are using [FAKE](http://fsharp.github.io/FAKE/) as build system.
