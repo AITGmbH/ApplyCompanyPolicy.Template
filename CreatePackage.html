@@ -114,7 +114,7 @@ build system as part of this package to build the Policy Package without the nee
 
 <p>to build the package. Your build server needs access to the Internet though to resolve the dependencies (for the build system itself).</p>
 
-<p>This will make sure that the package is build and verified (see point 5 from above) and the NuGet package is available in 'release/nuget/' as it is when using NuBuild from within Visual Studio.</p>
+<p>This will make sure that the package is built and verified (see point 5 from above) and the NuGet package is available in 'release/nuget/' as it is when using NuBuild from within Visual Studio.</p>
 
 <h3><a name="Editing-the-install-scripts" class="anchor" href="#Editing-the-install-scripts">Editing the install scripts</a></h3>
 
@@ -123,10 +123,10 @@ build system as part of this package to build the Policy Package without the nee
 <h3><a name="Use-the-documentation" class="anchor" href="#Use-the-documentation">Use the documentation</a></h3>
 
 <p>You can disable the documentation generation by changing the line <code>BuildDocumentation = true</code> to <code>BuildDocumentation = false</code> in <code>buildConfig.fsx</code>.
-You can edit and use the <a href="http://aitgmbh.github.io/ApplyCompanyPolicy.Template/">documentation generation</a> (which is part of the repository and executed with <code>build.cmd</code>) and use it for your own policy package. If you want this please open a issue and ask for it.
+You can edit and use the <a href="http://aitgmbh.github.io/ApplyCompanyPolicy.Template/">documentation generation</a> (which is part of the repository and executed with <code>build.cmd</code>) and use it for your own policy package. If you want this please open an issue and ask for it.
 This section will be extended on-demand.
 To help yourself we are using the <a href="http://tpetricek.github.io/FSharp.Formatting/">FSharp.Formatting</a> package to create html by using markup files.
-You can edit <code>packages/AIT.Build/content/generateDocsInclude.fsx</code> to fit your needs or (the clean solution) add a new <code>Target</code> to <code>generateDocs.fsx</code>.
+You can edit <code>generateDocs.fsx</code> to fit your needs.
 We are using <a href="http://fsharp.github.io/FAKE/">FAKE</a> as build system.</p>
 
 
